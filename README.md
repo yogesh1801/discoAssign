@@ -1,4 +1,11 @@
+## Contributors
+Yogesh Singla(2021B5A73030G)
+Anuj Shikarkhane(2021B5A71145G)
+Jenil Shah(2021B5A73027G)
+
+
 ## Folder Structure
+
 
 The workspace contains two folders by default, where:
 
