@@ -38,27 +38,27 @@ public class Main {
             }
         }
 
-        courses.add(new Course("OOPs","CDC"));
-        courses.add(new Course("LCS","CDC"));
-        courses.add(new Course("CS103","CDC"));
-        courses.add(new Course("CS104","CDC"));
-        courses.add(new Course("CS105","CDC"));
-        courses.add(new Course("CS106","CDC"));
-        courses.add(new Course("CS107","CDC"));
-        courses.add(new Course("CS108","CDC"));
-        courses.add(new Course("CS109","CDC"));
-        courses.add(new Course("CS110","CDC"));
-        courses.add(new Course("HSS101","EL"));
-        courses.add(new Course("HSS102","EL"));
+        
+        try(FileReader reader = new FileReader("./csv/courses.csv");
+        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
+            for (CSVRecord csvRecord : csvParser) {
+                String courseName = csvRecord.get("courseName");
+                String courseType = csvRecord.get("courseType");
+                Course course = new Course(courseName, courseType);
+                courses.add(course);
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
 
         ArrayList<Course> courseCDC = new ArrayList<>();
-        ArrayList<Course> courseEL = new ArrayList<>();
+        ArrayList<Course> courseELE = new ArrayList<>();
 
         for (Course courses : courses) {
             switch (courses.category) {
                 case "CDC" -> courseCDC.add(courses);
-                case "EL" -> courseEL.add(courses);
-                default -> System.out.println("Unknown category for professor: " + courses.courseName);
+                case "ELE" -> courseELE.add(courses);
             }
         }
 
