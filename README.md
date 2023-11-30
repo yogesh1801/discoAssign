@@ -15,5 +15,5 @@ From Command Pallate Search For `Run Java Project` or `Run` and run the project
 
 ## Program Jar File
 
-file `discoAssign.jar` can be added to sys java path or add into dependencies to run the program directly.
+file `discoAssign.jar` can be added to sys java path or add into dependencies to run the program directly. 
 
