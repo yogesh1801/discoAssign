@@ -144,6 +144,115 @@ public class Main {
 
         }
 
+        profX2new.clear();
+        profX3new.clear();
+
+
+        for (Course course : courseELE) {
+            AllocateToProfCat(profX1 , course);
+            if(course.isCourseAvailable()){
+                AllocateToProfCat(profX2,course);
+                if(course.isCourseAvailable()){
+                    AllocateToProfCat(profX3,course);
+                    if(course.isCourseAvailable()){
+                        course.deAllocateThisCourse();
+                    }
+                    else{
+                        removeFromAllpreferences(course);
+                    }
+                }
+                else{
+                    removeFromAllpreferences(course);
+                }
+            }
+            else{
+                removeFromAllpreferences(course);
+            }
+
+        }
+
+        for(Professor profs: profX2){
+            if(profs.workLoadAllocated == 0.5){
+                profX2new.add(profs);
+            }
+        }
+
+        for (Course course : courseELE) {
+            if(course.isCourseAvailable()){
+                AllocateToProfCat(profX2new,course);
+                if(course.isCourseAvailable()){
+                    AllocateToProfCat(profX3,course);
+                    if(course.isCourseAvailable()){
+                        course.deAllocateThisCourse();
+                    }
+                    else{
+                        removeFromAllpreferences(course);
+                    }
+                }
+                else{
+                    removeFromAllpreferences(course);
+                }
+            }
+            else{
+                removeFromAllpreferences(course);
+            }
+
+        }
+
+        for(Professor profs: profX3){
+            if(profs.workLoadAllocated >= 0.5){
+                profX3new.add(profs);
+            }
+        }
+
+        for (Course course : courseELE) {
+            if(course.isCourseAvailable()){
+                AllocateToProfCat(profX2new,course);
+                if(course.isCourseAvailable()){
+                    AllocateToProfCat(profX3new,course);
+                    if(course.isCourseAvailable()){
+                        course.deAllocateThisCourse();
+                    }
+                    else{
+                        removeFromAllpreferences(course);
+                    }
+                }
+                else{
+                    removeFromAllpreferences(course);
+                }
+            }
+            else{
+                removeFromAllpreferences(course);
+            }
+
+        }
+
+
+        boolean flag = false;
+        for(Course course: courseCDC)
+        {
+            if(course.isCourseAvailable())
+            {
+                flag = true;
+            }
+        }
+
+        if(flag == true){
+            System.out.println("!!ALL COURSES ARE NOT ALLOTED!!");
+        }
+        else{
+            System.out.println("!!ALL COURSES ARE ALLOTED!!");
+        }
+
+        System.out.println("The CDC's alloted are :");
+        for(Course course: courseCDC){
+            System.out.println(course.courseName);
+        }
+
+        System.out.println("The Electives's alloted are :");
+        for(Course course: courseELE){
+            System.out.println(course.courseName);
+        }
 
         for(Professor professor : profX1) {
             System.out.println(professor);
@@ -156,6 +265,8 @@ public class Main {
         for(Professor professor : profX3) {
             System.out.println(professor);
         }
+
+
     }
 
     public static void removeFromAllpreferences(Course course){
