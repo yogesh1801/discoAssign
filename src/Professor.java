@@ -54,8 +54,12 @@ class Professor {
     }
 
     public String toString(){
-        return "Professor name is: " + this.name + "\nCategory is: " + this.category + "\nThe work allocated is: " + this.workLoadAllocated + "\nThe courses allocated are: " + this.coursesAllocated + "\n";
+        return "Professor name is: " + this.name + "\nPossible workload is: " + this.possibleWorkLoad + "\nThe work allocated is: " + this.workLoadAllocated + "\nThe courses allocated are: " + this.coursesAllocated + "\n";
     }
+
+    // public String toString(){
+    //     return "Professor name is: " + this.name + " Category is: " + this.category + " The work allocated is: " + this.workLoadAllocated;
+    // }
 
     public Professor(String name, Category category, double possibleWorkLoad , ArrayList<String> preferenceList) {
         this.name = name;

@@ -227,32 +227,35 @@ public class Main {
 
         }
 
+        System.out.println("The CDC's alloted are :");
+        for(Course course: courseCDC){
+            if(!course.isCourseAvailable())
+            {
+            System.out.println(course.courseName);
+        }
+    }
+        System.out.println("The Electives's alloted are :");
+        for(Course course: courseELE){
+        System.out.println(course.courseName);
+    }
 
         boolean flag = false;
         for(Course course: courseCDC)
         {
             if(course.isCourseAvailable())
             {
+                System.out.println(course.courseName);
                 flag = true;
             }
         }
 
         if(flag == true){
-            System.out.println("!!ALL COURSES ARE NOT ALLOTED!!");
+            System.err.println("!!ALL CDC'S ARE NOT ALLOTED!!\n");
         }
         else{
-            System.out.println("!!ALL COURSES ARE ALLOTED!!");
+            System.out.println("!!ALL CDC'S ARE ALLOTED!!\n");
         }
 
-        System.out.println("The CDC's alloted are :");
-        for(Course course: courseCDC){
-            System.out.println(course.courseName);
-        }
-
-        System.out.println("The Electives's alloted are :");
-        for(Course course: courseELE){
-            System.out.println(course.courseName);
-        }
 
         for(Professor professor : profX1) {
             System.out.println(professor);
@@ -265,7 +268,6 @@ public class Main {
         for(Professor professor : profX3) {
             System.out.println(professor);
         }
-
 
     }
 
